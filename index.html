@@ -190,57 +190,74 @@
     .hero-stat-num { font-size: 1.8rem; font-weight: 800; color: var(--white); }
     .hero-stat-label { font-size: .8rem; color: var(--text-muted); font-weight: 500; }
 
-    /* ── PHONE MOCKUP ── */
+    /* ── DESKTOP MOCKUP ── */
     .phone-wrap {
       display: flex; justify-content: center; align-items: center;
       position: relative;
     }
-    .phone-glow {
-      position: absolute; width: 300px; height: 500px;
-      background: radial-gradient(ellipse, rgba(234,0,41,0.2) 0%, transparent 70%);
-      filter: blur(40px);
+    .monitor-glow {
+      position: absolute; width: 520px; height: 360px;
+      background: radial-gradient(ellipse, rgba(234,0,41,0.18) 0%, rgba(108,61,224,0.1) 50%, transparent 70%);
+      filter: blur(48px); pointer-events: none;
     }
-    .phone {
-      width: 260px; height: 520px;
-      background: linear-gradient(160deg, #1e1b30 0%, #0f0e1a 100%);
-      border-radius: 36px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,0.04) inset,
-        0 40px 80px rgba(0,0,0,0.6),
-        0 0 60px rgba(234,0,41,0.08);
-      overflow: hidden;
-      position: relative;
-      animation: float 4s ease-in-out infinite;
+    .monitor {
+      width: 520px;
+      animation: float 5s ease-in-out infinite;
+      position: relative; z-index: 1;
     }
     @keyframes float {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+      50% { transform: translateY(-10px); }
     }
-    .phone-notch {
-      width: 100px; height: 28px;
-      background: #07070f; border-radius: 0 0 18px 18px;
-      margin: 0 auto; position: relative; z-index: 2;
+    .monitor-screen-wrap {
+      background: #0d0c18;
+      border-radius: 12px 12px 0 0;
+      border: 2px solid rgba(255,255,255,0.12);
+      border-bottom: none;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 30px 80px rgba(0,0,0,0.7),
+        0 0 60px rgba(234,0,41,0.07);
+      overflow: hidden;
+      position: relative;
     }
-    .phone-screen { padding: 8px 16px 20px; }
-    .phone-status { display: flex; justify-content: space-between; align-items: center; padding: 4px 0 12px; }
-    .phone-time { font-size: .75rem; font-weight: 700; color: var(--white); }
-    .phone-header { background: rgba(234,0,41,0.12); border: 1px solid rgba(234,0,41,0.2); border-radius: 12px; padding: 12px; margin-bottom: 12px; }
-    .phone-header-title { font-size: .7rem; font-weight: 700; color: var(--white); }
-    .phone-header-sub { font-size: .6rem; color: var(--text-muted); }
-    .phone-header-val { font-size: 1.4rem; font-weight: 800; color: var(--red-light); margin-top: 2px; }
-    .phone-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-    .phone-card { background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 10px; padding: 10px; }
-    .phone-card-icon { font-size: .9rem; margin-bottom: 4px; }
-    .phone-card-val { font-size: .9rem; font-weight: 700; color: var(--white); }
-    .phone-card-label { font-size: .55rem; color: var(--text-muted); }
-    .phone-chart { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 10px; }
-    .phone-chart-label { font-size: .6rem; color: var(--text-muted); margin-bottom: 8px; }
-    .phone-bars { display: flex; align-items: flex-end; gap: 4px; height: 48px; }
-    .phone-bar { flex: 1; border-radius: 3px 3px 0 0; opacity: .7; }
-    .phone-tabs { display: flex; gap: 6px; margin-top: 12px; justify-content: center; }
-    .phone-tab { flex: 1; padding: 6px 4px; border-radius: 8px; font-size: .5rem; text-align: center; font-weight: 600; color: var(--text-muted); background: rgba(255,255,255,0.03); }
-    .phone-tab.active { background: var(--red); color: #fff; }
+    .monitor-titlebar {
+      height: 28px;
+      background: #131220;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: center; padding: 0 12px; gap: 6px;
+    }
+    .monitor-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .monitor-dot-r { background: #ff5f57; }
+    .monitor-dot-y { background: #ffbd2e; }
+    .monitor-dot-g { background: #28c840; }
+    .monitor-url {
+      flex: 1; margin: 0 12px;
+      background: rgba(255,255,255,0.06); border-radius: 4px;
+      height: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: .55rem; color: var(--text-dim); letter-spacing: .02em;
+    }
+    .monitor-screenshot {
+      display: block; width: 100%;
+      aspect-ratio: 16/9; object-fit: cover; object-position: top left;
+    }
+    /* Stand */
+    .monitor-neck {
+      width: 60px; height: 28px;
+      background: linear-gradient(180deg, #1a1830, #111020);
+      margin: 0 auto;
+      border-left: 2px solid rgba(255,255,255,0.06);
+      border-right: 2px solid rgba(255,255,255,0.06);
+    }
+    .monitor-base {
+      width: 180px; height: 10px;
+      background: linear-gradient(180deg, #1a1830, #0f0e1a);
+      border-radius: 0 0 8px 8px;
+      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.07); border-top: none;
+    }
 
     /* ── BRAND STRIP ── */
     .brand-strip {
@@ -480,6 +497,7 @@
     @media (max-width: 768px) {
       .hero-content { grid-template-columns: 1fr; gap: 48px; }
       .phone-wrap { display: none; }
+      .monitor { width: 100%; }
       .hero-stats { gap: 20px; }
       .steps { grid-template-columns: 1fr; }
       .features-grid { grid-template-columns: 1fr; }
@@ -562,60 +580,19 @@
         </div>
       </div>
       <div class="phone-wrap reveal reveal-delay-2">
-        <div class="phone-glow"></div>
-        <div class="phone">
-          <div class="phone-notch"></div>
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span class="phone-time">9:41</span>
-              <span style="font-size:.6rem;color:#8b89a8;">●●● 100%</span>
+        <div class="monitor-glow"></div>
+        <div class="monitor">
+          <div class="monitor-screen-wrap">
+            <div class="monitor-titlebar">
+              <div class="monitor-dot monitor-dot-r"></div>
+              <div class="monitor-dot monitor-dot-y"></div>
+              <div class="monitor-dot monitor-dot-g"></div>
+              <div class="monitor-url">app.bydstats.com</div>
             </div>
-            <div class="phone-header">
-              <div class="phone-header-title">⚡ BYD Stats</div>
-              <div class="phone-header-sub">Eficiencia media hoy</div>
-              <div class="phone-header-val">14.2 kWh/100km</div>
-            </div>
-            <div class="phone-cards">
-              <div class="phone-card">
-                <div class="phone-card-icon">🚗</div>
-                <div class="phone-card-val">847 km</div>
-                <div class="phone-card-label">Este mes</div>
-              </div>
-              <div class="phone-card">
-                <div class="phone-card-icon">🔋</div>
-                <div class="phone-card-val">95%</div>
-                <div class="phone-card-label">SoH batería</div>
-              </div>
-              <div class="phone-card">
-                <div class="phone-card-icon">⚡</div>
-                <div class="phone-card-val">12 cargas</div>
-                <div class="phone-card-label">Este mes</div>
-              </div>
-              <div class="phone-card">
-                <div class="phone-card-icon">🌱</div>
-                <div class="phone-card-val">-18 kg</div>
-                <div class="phone-card-label">CO₂ evitado</div>
-              </div>
-            </div>
-            <div class="phone-chart">
-              <div class="phone-chart-label">Eficiencia últimos 7 días</div>
-              <div class="phone-bars">
-                <div class="phone-bar" style="height:60%;background:#EA0029;"></div>
-                <div class="phone-bar" style="height:75%;background:#EA0029;"></div>
-                <div class="phone-bar" style="height:45%;background:#EA0029;opacity:.5"></div>
-                <div class="phone-bar" style="height:85%;background:#EA0029;"></div>
-                <div class="phone-bar" style="height:70%;background:#EA0029;opacity:.7"></div>
-                <div class="phone-bar" style="height:90%;background:#EA0029;"></div>
-                <div class="phone-bar" style="height:80%;background:#6c3de0;"></div>
-              </div>
-            </div>
-            <div class="phone-tabs">
-              <div class="phone-tab active">Viajes</div>
-              <div class="phone-tab">Carga</div>
-              <div class="phone-tab">IA</div>
-              <div class="phone-tab">Mapa</div>
-            </div>
+            <img src="./screenshot.png" alt="BYD Stats dashboard" class="monitor-screenshot" />
           </div>
+          <div class="monitor-neck"></div>
+          <div class="monitor-base"></div>
         </div>
       </div>
     </div>
