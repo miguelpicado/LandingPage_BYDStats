@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.bydstats.app",
+      "sha256_cert_fingerprints": [
+        "AB:67:20:EE:65:BC:19:8C:99:22:C3:0E:94:36:0B:FB:D8:BA:5E:DE:DA:7C:76:20:12:CA:44:54:35:31:EB:26",
+        "98:C1:05:4F:0B:04:6E:E5:B9:73:1C:2B:80:71:3A:1D:1A:3F:82:1F:B2:81:DE:31:AC:30:F3:D1:A0:10:64:73"
+      ]
+    }
+  }
+]
