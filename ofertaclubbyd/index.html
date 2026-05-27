@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club BYD — BYD Stats Premium</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root { --red:#ea0029; --bg:#0f1115; --card:#171a21; --text:#f4f4f5; --muted:#a1a1aa; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text);
+      min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,0.08); border-radius:24px; padding:36px 28px;
+      max-width:440px; width:100%; text-align:center; box-shadow:0 25px 60px rgba(0,0,0,0.5); }
+    .logo { width:72px; height:72px; border-radius:18px; margin:0 auto 20px;
+      background:linear-gradient(135deg,#6c3de0 0%,#a855f7 100%); display:flex; align-items:center; justify-content:center; font-size:34px; }
+    h1 { font-size:1.5rem; margin-bottom:8px; }
+    .badge { display:inline-block; background:rgba(108,61,224,0.18); color:#c4b5fd; font-size:.8rem; font-weight:600;
+      padding:6px 14px; border-radius:999px; margin-bottom:18px; }
+    p { color:var(--muted); line-height:1.6; font-size:.95rem; margin-bottom:14px; }
+    .price { font-size:2rem; font-weight:700; color:#c4b5fd; margin:10px 0 2px; }
+    .price s { color:var(--muted); font-size:1.1rem; font-weight:500; margin-right:8px; }
+    .price-sub { color:var(--muted); font-size:.85rem; margin-bottom:24px; }
+    .btn { display:block; width:100%; padding:16px; border-radius:16px; font-size:1rem; font-weight:700; text-decoration:none;
+      background:linear-gradient(135deg,#6c3de0 0%,#a855f7 100%); color:#fff; margin-bottom:14px; transition:transform .15s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-secondary { display:block; width:100%; padding:14px; border-radius:16px; font-size:.95rem; font-weight:600; text-decoration:none;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--text); margin-bottom:14px; transition:transform .15s; }
+    .btn-secondary:hover { transform:translateY(-2px); }
+    .steps { text-align:left; background:rgba(255,255,255,0.04); border-radius:14px; padding:16px 18px; margin-top:8px; }
+    .steps li { color:var(--muted); font-size:.85rem; margin:0 0 8px 18px; line-height:1.5; }
+    .steps li:last-child { margin-bottom:0; }
+    .web { margin-top:22px; font-size:.82rem; }
+    .web a { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">✦</div>
+    <div class="badge">CLUB BYD · OFERTA EXCLUSIVA</div>
+    <h1>BYD Stats Premium</h1>
+    <p>Precio Club con <strong>20% de descuento</strong> sobre el plan anual.</p>
+    <div class="price"><s>20€</s>16€<span style="font-size:1.1rem;font-weight:500;">/año</span></div>
+    <div class="price-sub">+ IVA aplicable · 14 días de prueba gratis</div>
+
+    <a class="btn" href="bydstats://subscribe?offerTag=clubbyd">✦ Activar mi precio Club (20%)</a>
+
+    <a class="btn-secondary" href="https://play.google.com/apps/testing/com.bydstats.app">📲 Aún no tengo la app — Instalarla</a>
+
+    <ul class="steps">
+      <li><strong>Paso 1.</strong> Instala la app desde el botón gris (únete a la prueba y descárgala desde Google Play).</li>
+      <li><strong>Paso 2.</strong> Vuelve aquí y pulsa <strong>«Activar mi precio Club»</strong>: se abrirá la app con el descuento del 20% ya aplicado.</li>
+    </ul>
+
+    <p class="web">¿Solo quieres probar gratis? Usa la versión web en
+      <a href="https://app.bydstats.com">app.bydstats.com</a></p>
+  </div>
+</body>
+</html>
