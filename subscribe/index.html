@@ -24,6 +24,9 @@
     .btn { display:block; width:100%; padding:16px; border-radius:16px; font-size:1rem; font-weight:700; text-decoration:none;
       background:linear-gradient(135deg,#6c3de0 0%,#a855f7 100%); color:#fff; margin-bottom:14px; transition:transform .15s; }
     .btn:hover { transform:translateY(-2px); }
+    .btn-secondary { display:block; width:100%; padding:14px; border-radius:16px; font-size:.95rem; font-weight:600; text-decoration:none;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--text); margin-bottom:14px; transition:transform .15s; }
+    .btn-secondary:hover { transform:translateY(-2px); }
     .steps { text-align:left; background:rgba(255,255,255,0.04); border-radius:14px; padding:16px 18px; margin-top:8px; }
     .steps li { color:var(--muted); font-size:.85rem; margin:0 0 8px 18px; line-height:1.5; }
     .steps li:last-child { margin-bottom:0; }
@@ -38,13 +41,15 @@
     <h1>BYD Stats Premium</h1>
     <p>Precio Club con <strong>20% de descuento</strong> sobre el plan anual.</p>
     <div class="price"><s>20€</s>16€<span style="font-size:1.1rem;font-weight:500;">/año</span></div>
-    <div class="price-sub">impuestos incluidos · 14 días de prueba gratis</div>
+    <div class="price-sub">+ IVA aplicable · 14 días de prueba gratis</div>
 
-    <a class="btn" href="https://play.google.com/apps/testing/com.bydstats.app?referrer=offerTag=clubbyd">📲 Instalar y activar el precio Club</a>
+    <a class="btn" href="bydstats://subscribe?offerTag=clubbyd">✦ Activar mi precio Club (20%)</a>
+
+    <a class="btn-secondary" href="https://play.google.com/apps/testing/com.bydstats.app">📲 Aún no tengo la app — Instalarla</a>
 
     <ul class="steps">
-      <li><strong>¿Ya tienes la app?</strong> Este enlace la abre con el precio Club aplicado automáticamente.</li>
-      <li><strong>¿Aún no?</strong> Instálala con el botón de arriba: el descuento Club se aplicará solo al abrir la app por primera vez.</li>
+      <li><strong>Paso 1.</strong> Instala la app desde el botón gris (únete a la prueba y descárgala desde Google Play).</li>
+      <li><strong>Paso 2.</strong> Vuelve aquí y pulsa <strong>«Activar mi precio Club»</strong>: se abrirá la app con el descuento del 20% ya aplicado.</li>
     </ul>
 
     <p class="web">¿Solo quieres probar gratis? Usa la versión web en
