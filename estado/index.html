@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Estado de reportes — BYD Stats</title>
+  <style>
+    :root{--bg:#0f1115;--card:#171a21;--text:#f4f4f5;--muted:#a1a1aa;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;padding:24px;}
+    .wrap{max-width:760px;margin:0 auto;}
+    h1{font-size:1.4rem;margin-bottom:16px;}
+    .col{margin-bottom:22px;}
+    .col h2{font-size:.95rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;}
+    .item{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px;margin-bottom:8px;}
+    .item .t{font-weight:600;font-size:.95rem;}
+    .item .m{color:var(--muted);font-size:.82rem;margin-top:4px;}
+    .pill{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:999px;background:rgba(168,85,247,.18);color:#c4b5fd;margin-right:6px;}
+    .empty{color:var(--muted);font-size:.85rem;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Estado de reportes</h1>
+    <div id="board"></div>
+    <p class="empty" id="loading">Cargando…</p>
+  </div>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js';
+    import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js';
+    const firebaseConfig = {
+      apiKey: "AIzaSyDKFI03RfiuEcMPcsfnvGK9u-ItZvG9KDw", authDomain: "byd-stats-c8dbf.firebaseapp.com",
+      projectId: "byd-stats-c8dbf", storageBucket: "byd-stats-c8dbf.firebasestorage.app",
+      messagingSenderId: "689099974608", appId: "1:689099974608:web:1b7a86f56e324660f53bd5",
+    };
+    const db = getFirestore(initializeApp(firebaseConfig));
+    const STAGES = [['pending','Pendiente'],['wip','En curso'],['test','En pruebas'],['production','Publicado']];
+    const TYPES = { bug:'🐞 Fallo', improvement:'💡 Mejora' };
+    (async () => {
+      const snap = await getDocs(query(collection(db, 'reports_public'), orderBy('updatedAt','desc')));
+      const byStage = {}; STAGES.forEach(([k]) => byStage[k] = []);
+      snap.forEach(d => { const r = d.data(); if (byStage[r.status]) byStage[r.status].push(r); });
+      const board = document.getElementById('board');
+      document.getElementById('loading').remove();
+      for (const [k, label] of STAGES) {
+        const col = document.createElement('div'); col.className = 'col';
+        col.innerHTML = `<h2>${label} (${byStage[k].length})</h2>`;
+        if (!byStage[k].length) { col.innerHTML += `<p class="empty">— sin reportes —</p>`; }
+        for (const r of byStage[k]) {
+          const el = document.createElement('div'); el.className = 'item';
+          el.innerHTML = `<div class="t"><span class="pill">#${r.shortId}</span>${TYPES[r.type]||''} ${escapeHtml(r.title)}</div>`
+            + (r.summary ? `<div class="m">${escapeHtml(r.summary)}</div>` : '')
+            + `<div class="m">${escapeHtml(r.platform||'')}${r.appVersion?(' · v'+escapeHtml(r.appVersion)):''}</div>`;
+          col.appendChild(el);
+        }
+        board.appendChild(col);
+      }
+    })();
+    function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+  </script>
+</body>
+</html>
