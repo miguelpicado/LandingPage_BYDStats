@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suscríbete — BYD Stats Premium</title>
+  <meta name="robots" content="noindex">
+  <style>
+    :root { --red:#ea0029; --bg:#0f1115; --card:#171a21; --text:#f4f4f5; --muted:#a1a1aa; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--bg); color:var(--text);
+      min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .card { background:var(--card); border:1px solid rgba(255,255,255,0.08); border-radius:24px; padding:36px 28px;
+      max-width:440px; width:100%; text-align:center; box-shadow:0 25px 60px rgba(0,0,0,0.5); }
+    .logo { width:72px; height:72px; border-radius:18px; margin:0 auto 20px;
+      background:linear-gradient(135deg,var(--red) 0%,#b91c1c 100%); display:flex; align-items:center; justify-content:center; font-size:34px; }
+    h1 { font-size:1.5rem; margin-bottom:8px; }
+    p { color:var(--muted); line-height:1.6; font-size:.95rem; margin-bottom:18px; }
+    .btn { display:block; width:100%; padding:16px; border-radius:16px; font-size:1rem; font-weight:700; text-decoration:none;
+      background:linear-gradient(135deg,var(--red) 0%,#b91c1c 100%); color:#fff; margin-bottom:14px; transition:transform .15s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-secondary { display:block; width:100%; padding:14px; border-radius:16px; font-size:.95rem; font-weight:600; text-decoration:none;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--text); margin-bottom:14px; transition:transform .15s; }
+    .btn-secondary:hover { transform:translateY(-2px); }
+    .web { margin-top:22px; font-size:.82rem; }
+    .web a { color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">⚡</div>
+    <h1>BYD Stats Premium</h1>
+    <p id="msg">Abriendo la app…</p>
+
+    <a class="btn" id="open-app" href="#">Abrir en la app</a>
+    <a class="btn-secondary" href="https://play.google.com/store/apps/details?id=com.bydstats.app">Descargar para Android</a>
+    <a class="btn-secondary" id="ios-link" href="#">Descargar para iPhone</a>
+
+    <p class="web"><a href="/">← Volver a bydstats.com</a></p>
+  </div>
+
+  <script>
+    // Conserva el offerTag (p.ej. ?offerTag=clubbyd20) al deep-linkear a la app.
+    var params = new URLSearchParams(location.search);
+    var offerTag = params.get('offerTag') || '';
+    var qs = offerTag ? ('?offerTag=' + encodeURIComponent(offerTag)) : '';
+
+    // Esquema propio: abre la app si está instalada (Universal/App Links interceptan
+    // ANTES de cargar esta página cuando el enlace se TOCA desde otra app; esta página
+    // es el fallback para enlaces tecleados o dispositivos sin la app).
+    var appUrl = 'bydstats://subscribe' + qs;
+    document.getElementById('open-app').href = appUrl;
+
+    // App Store: aún no publicada — por ahora apunta a la web. Sustituir por la URL
+    // real del App Store cuando esté disponible (itms-apps://...).
+    document.getElementById('ios-link').href = 'https://bydstats.com';
+
+    // Intento automático de abrir la app (silencioso si no está instalada).
+    var ua = navigator.userAgent || '';
+    if (/iPhone|iPad|Android/i.test(ua)) {
+      setTimeout(function () { window.location.href = appUrl; }, 300);
+      setTimeout(function () {
+        document.getElementById('msg').textContent =
+          '¿No se ha abierto la app? Instálala o ábrela manualmente:';
+      }, 1500);
+    } else {
+      document.getElementById('msg').textContent =
+        'Suscríbete a BYD Stats Premium desde la app en tu móvil.';
+    }
+  </script>
+</body>
+</html>
