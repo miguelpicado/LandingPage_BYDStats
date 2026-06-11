@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["T4T53QJ9HS.com.bydstats.app"],
+        "components": [
+          {
+            "/": "/subscribe*",
+            "comment": "Oferta Club BYD y futuros deep-links de suscripcion"
+          }
+        ]
+      }
+    ]
+  }
+}
