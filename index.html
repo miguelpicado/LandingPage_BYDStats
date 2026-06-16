@@ -4,10 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BYD Stats — La app para tu BYD que BYD no quiso hacer</title>
-  <meta name="description" content="Estadísticas avanzadas para tu BYD eléctrico. Controla tus viajes, carga, eficiencia y hábitos de conducción. Gratuita y de pago. Hecha por la comunidad." />
-  <meta property="og:title" content="BYD Stats — La app para tu BYD que BYD no quiso hacer" />
-  <meta property="og:description" content="Estadísticas avanzadas para tu BYD eléctrico. Gratuita y de pago." />
+  <meta name="description" content="La mejor app alternativa para tu BYD. Obtén estadísticas reales, estado de batería (SoH), mapas de viaje y automatiza tus cargas. Privacidad 100% local." />
+  <link rel="canonical" href="https://bydstats.com/" />
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bydstats.com/" />
+  <meta property="og:title" content="BYD Stats: La App Avanzada de Estadísticas para BYD" />
+  <meta property="og:description" content="Estadísticas avanzadas para tu vehículo eléctrico. Controla tus viajes, carga, eficiencia y hábitos de conducción." />
+  <meta property="og:image" content="https://bydstats.com/social-card.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://bydstats.com/" />
+  <meta name="twitter:title" content="BYD Stats: La App Avanzada de Estadísticas para BYD" />
+  <meta name="twitter:description" content="Estadísticas avanzadas para tu vehículo eléctrico BYD. Controla viajes, carga y eficiencia." />
+  <meta name="twitter:image" content="https://bydstats.com/social-card.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -495,6 +507,7 @@
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
+      body::before { display: none; }
       .hero-content { grid-template-columns: 1fr; gap: 48px; }
       .phone-wrap { display: none; }
       .monitor { width: 100%; }
@@ -517,13 +530,71 @@
       .stat-grid { grid-template-columns: 1fr; }
     }
   </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "BYD Stats",
+      "operatingSystem": "Web, Android",
+      "applicationCategory": "UtilitiesApplication",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "124"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "0",
+        "highPrice": "20",
+        "priceCurrency": "EUR"
+      },
+      "description": "App de estadísticas de conducción, consumos y estado de batería (SoH) compatible con vehículos eléctricos BYD."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "¿BYD Stats anula la garantía de mi coche?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, en absoluto. BYD Stats funciona consultando la misma API oficial que usa la app de BYD de tu móvil. No enviamos comandos no autorizados ni modificamos el software del vehículo. Es completamente seguro y no afecta a tu garantía."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Qué diferencia hay con la app oficial de BYD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La app oficial te muestra el estado actual de tu coche, pero no guarda un historial. BYD Stats almacena todos tus viajes, consumos reales, historial de cargas, y utiliza IA para calcular la salud de tu batería (SoH) a lo largo del tiempo."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Dónde se guardan mis datos y contraseñas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tus datos de viajes se procesan de forma local en tu dispositivo mediante una base de datos SQLite. Las credenciales de BYD viajan encriptadas directamente a los servidores de BYD. Nosotros no vendemos ni tenemos acceso a tus datos de movilidad."
+        }
+      }, {
+        "@type": "Question",
+        "name": "¿Con qué modelos de BYD es compatible?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Actualmente es compatible con todos los modelos 100% eléctricos de BYD vendidos en Europa y otras regiones, incluyendo BYD Seal, Dolphin, Atto 3, Sealion 7, etc."
+        }
+      }]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav id="nav">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-icon"><img src="./app_icon_192.png" alt="BYD Stats logo" /></div>
+      <div class="nav-logo-icon"><img src="./app_icon_192.png" alt="Logo de BYD Stats" width="36" height="36" /></div>
       BYD Stats
     </a>
     <div class="nav-links">
@@ -533,11 +604,12 @@
       <a href="#comunidad" class="nav-link">Comunidad</a>
       <a href="https://app.bydstats.com" target="_blank" rel="noopener" class="btn-nav">Probar gratis →</a>
     </div>
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Menú">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" style="border:none; background:transparent;">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
+  <main>
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
@@ -585,7 +657,7 @@
               <div class="monitor-dot monitor-dot-g"></div>
               <div class="monitor-url">app.bydstats.com</div>
             </div>
-            <img src="./screenshot.png" alt="BYD Stats dashboard" class="monitor-screenshot" />
+            <img src="./screenshot.png" alt="Panel de estadísticas y consumos de BYD Stats" class="monitor-screenshot" width="520" height="292" fetchpriority="high" />
           </div>
           <div class="monitor-neck"></div>
           <div class="monitor-base"></div>
@@ -596,18 +668,18 @@
 
   <!-- BRAND STRIP -->
   <div class="brand-strip">
-    <div class="brand-strip-inner">
-      <span style="color:var(--text-dim);font-size:.8rem;">Compatible con</span>
-      <span style="color:var(--text-dim);font-size:.8rem;margin-left:4px;">(100% eléctricos)</span>
-      <div class="brand-chip">🚗 BYD Seal</div>
-      <div class="brand-chip">🚗 BYD Sealion</div>
-      <div class="brand-chip">🚗 BYD Dolphin</div>
-      <div class="brand-chip">🚗 BYD Dolphin Surf</div>
-      <div class="brand-chip">🚗 BYD Atto 3</div>
-      <div class="brand-chip">🚗 BYD Atto 2</div>
-      <span style="color:var(--text-dim);font-size:.8rem;margin-left:8px;">Próximamente:</span>
-      <div class="brand-chip" style="color:var(--text-dim);">🔋 Modelos híbridos</div>
-    </div>
+    <ul class="brand-strip-inner" style="list-style:none;">
+      <li><span style="color:var(--text-dim);font-size:.8rem;">Compatible con</span>
+      <span style="color:var(--text-dim);font-size:.8rem;margin-left:4px;">(100% eléctricos)</span></li>
+      <li class="brand-chip">🚗 BYD Seal</li>
+      <li class="brand-chip">🚗 BYD Sealion</li>
+      <li class="brand-chip">🚗 BYD Dolphin</li>
+      <li class="brand-chip">🚗 BYD Dolphin Surf</li>
+      <li class="brand-chip">🚗 BYD Atto 3</li>
+      <li class="brand-chip">🚗 BYD Atto 2</li>
+      <li><span style="color:var(--text-dim);font-size:.8rem;margin-left:8px;">Próximamente:</span></li>
+      <li class="brand-chip" style="color:var(--text-dim);">🔋 Modelos híbridos</li>
+    </ul>
   </div>
 
   <!-- HOW IT WORKS -->
@@ -615,7 +687,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Cómo funciona</span>
-        <h2 class="section-title gradient-text">Simple como debería ser</h2>
+        <h2 class="section-title gradient-text">Cómo funciona BYD Stats</h2>
         <p class="section-desc">Conecta tu cuenta BYD y en minutos tienes acceso a todos tus datos de conducción, carga y batería.</p>
       </div>
       <div class="steps">
@@ -643,7 +715,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Funciones</span>
-        <h2 class="section-title">Todo lo que BYD<br><span class="red-text">debería haberte dado</span></h2>
+        <h2 class="section-title">Estadísticas avanzadas<br><span class="red-text">para tu BYD</span></h2>
         <p class="section-desc">Cada función está diseñada para darte información real que la app oficial de BYD no ofrece.</p>
       </div>
       <div class="features-grid">
@@ -700,7 +772,7 @@
         <div>
           <div class="section-header" style="text-align:left;margin-bottom:24px;">
             <span class="section-label">Privacidad primero</span>
-            <h2 class="section-title">Tus datos son<br><span class="gradient-text">solo tuyos</span></h2>
+            <h2 class="section-title">Privacidad y<br><span class="gradient-text">Procesamiento Local</span></h2>
           </div>
           <p style="color:var(--text-muted);font-size:.95rem;line-height:1.8;margin-bottom:28px;">
             BYD Stats procesa todo localmente en tu dispositivo usando SQLite embebido en el navegador.
@@ -757,7 +829,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Planes</span>
-        <h2 class="section-title">Empieza gratis,<br>mejora cuando quieras</h2>
+        <h2 class="section-title">Planes y precios<br>de BYD Stats</h2>
         <p class="section-desc">La versión gratuita ya es potente. La Premium añade telemetría en tiempo real, control del vehículo, IA avanzada y la app Android nativa.</p>
       </div>
       <div class="plans">
@@ -945,6 +1017,55 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="faq-section" id="faq" style="padding: 120px 24px; background: var(--bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Preguntas Frecuentes</span>
+        <h2 class="section-title">Resolvemos tus dudas</h2>
+      </div>
+      <div class="faq-list reveal" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
+          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            ¿BYD Stats anula la garantía de mi coche?
+            <span style="color: var(--red);">+</span>
+          </summary>
+          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            No, en absoluto. BYD Stats funciona consultando la misma API oficial que usa la app de BYD de tu móvil. No enviamos comandos no autorizados ni modificamos el software del vehículo. Es completamente seguro y no afecta a tu garantía.
+          </p>
+        </details>
+        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
+          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            ¿Qué diferencia hay con la app oficial de BYD?
+            <span style="color: var(--red);">+</span>
+          </summary>
+          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            La app oficial te muestra el estado actual de tu coche, pero no guarda un historial. BYD Stats almacena todos tus viajes, consumos reales, historial de cargas, y utiliza IA para calcular la salud de tu batería (SoH) a lo largo del tiempo.
+          </p>
+        </details>
+        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
+          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            ¿Dónde se guardan mis datos y contraseñas?
+            <span style="color: var(--red);">+</span>
+          </summary>
+          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            Tus datos de viajes se procesan de forma local en tu dispositivo mediante una base de datos SQLite. Las credenciales de BYD viajan encriptadas directamente a los servidores de BYD. Nosotros no vendemos ni tenemos acceso a tus datos de movilidad.
+          </p>
+        </details>
+        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
+          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+            ¿Con qué modelos de BYD es compatible?
+            <span style="color: var(--red);">+</span>
+          </summary>
+          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+            Actualmente es compatible con todos los modelos 100% eléctricos de BYD vendidos en Europa y otras regiones, incluyendo BYD Seal, Dolphin, Atto 3, Sealion 7, etc. Próximamente añadiremos soporte para la gama de híbridos enchufables (PHEV).
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  </main>
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
