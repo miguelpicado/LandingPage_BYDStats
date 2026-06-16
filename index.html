@@ -4,8 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BYD Stats: App de Estadísticas y Estado de Batería (SoH)</title>
-  <meta name="description" content="La mejor app alternativa para tu BYD. Obtén estadísticas reales, estado de batería (SoH), mapas de viaje y automatiza tus cargas. Privacidad 100% local." />
+  <meta name="description" content="App de estadísticas para tu BYD. Controla consumos reales, salud de batería (SoH) y mapas de viaje. 100% privado y local." />
   <link rel="canonical" href="https://bydstats.com/" />
+  <link rel="alternate" hreflang="es" href="https://bydstats.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://bydstats.com/" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#07070f" />
   <link rel="icon" type="image/png" href="/app_icon_192.png" />
@@ -90,8 +92,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 16px 24px;
       display: flex; align-items: center; justify-content: space-between;
-      backdrop-filter: blur(20px);
-      background: rgba(7,7,15,0.7);
+      background: rgba(7,7,15,0.95);
       border-bottom: 1px solid var(--border);
       transition: all .3s ease;
     }
@@ -594,9 +595,8 @@
         "ratingCount": "124"
       },
       "offers": {
-        "@type": "AggregateOffer",
-        "lowPrice": "0",
-        "highPrice": "20",
+        "@type": "Offer",
+        "price": "0",
         "priceCurrency": "EUR"
       },
       "description": "App de estadísticas de conducción, consumos y estado de batería (SoH) compatible con vehículos eléctricos BYD."
@@ -1144,6 +1144,12 @@
         <a href="/legal/" class="footer-link">Aviso legal</a>
       </div>
     </div>
+    <div class="container" style="display:flex; justify-content:center; flex-wrap: wrap; gap: 24px; margin-top: 32px;">
+       <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Twitter X">𝕏 (Twitter)</a>
+       <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="Instagram">Instagram</a>
+       <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="YouTube">YouTube</a>
+       <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-link" aria-label="LinkedIn">LinkedIn</a>
+    </div>
     <div class="container">
       <div class="footer-copy">
         Hecho con ❤️ por la comunidad BYD · No afiliado a BYD Company Ltd.
@@ -1176,7 +1182,7 @@
         btn.setAttribute('aria-expanded', 'false');
         btn.setAttribute('aria-label', 'Abrir menú');
       } else {
-        links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(7,7,15,0.97);backdrop-filter:blur(20px);padding:20px 24px;gap:8px;border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;';
+        links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(7,7,15,0.98);padding:20px 24px;gap:8px;border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;';
         btn.setAttribute('aria-expanded', 'true');
         btn.setAttribute('aria-label', 'Cerrar menú');
       }
