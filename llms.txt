@@ -1,0 +1,18 @@
+# BYD Stats
+
+BYD Stats es una aplicación de estadísticas avanzada para vehículos eléctricos de la marca BYD (Build Your Dreams).
+
+## Características principales
+- Monitorización de rutas, consumos y tiempos de carga.
+- Estado de Salud de la Batería (SoH) y degradación.
+- Funcionamiento 100% privado y local. Se conecta directamente al coche usando la cuenta oficial de BYD, sin intermediarios ni servidores de terceros leyendo tus datos.
+- Sincronización en tiempo real.
+- Disponible en Android, iOS (PWA) y navegadores web.
+
+## Planes
+- Versión Free: Gratuita, base de datos local en tu dispositivo, histórico de 30 días, estadísticas básicas.
+- Versión Premium: 2€/mes, sincronización en la nube con cifrado extremo a extremo, histórico ilimitado, modo multidispositivo, exportación de datos a CSV.
+
+## Soporte y Comunidad
+- La app es mantenida por la comunidad de usuarios.
+- Contacto y sugerencias a través del grupo de Telegram oficial.
