@@ -1,0 +1,17 @@
+{
+  "name": "BYD Stats",
+  "short_name": "BYD Stats",
+  "description": "App de estadísticas y estado de batería para tu BYD.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07070f",
+  "theme_color": "#07070f",
+  "icons": [
+    {
+      "src": "/app_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BYD Stats — La app para tu BYD que BYD no quiso hacer</title>
+  <title>BYD Stats: App de Estadísticas y Estado de Batería (SoH)</title>
   <meta name="description" content="La mejor app alternativa para tu BYD. Obtén estadísticas reales, estado de batería (SoH), mapas de viaje y automatiza tus cargas. Privacidad 100% local." />
   <link rel="canonical" href="https://bydstats.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#07070f" />
+  <link rel="icon" type="image/png" href="/app_icon_192.png" />
+  <link rel="apple-touch-icon" href="/app_icon_192.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="preload" href="./screenshot.png" as="image" />
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -22,7 +28,7 @@
   <meta name="twitter:image" content="https://bydstats.com/social-card.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -113,8 +119,8 @@
       border: none; cursor: pointer;
     }
     .btn-nav:hover { background: var(--red-dark); transform: translateY(-1px); }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-    .hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 12px; margin-right: -12px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
 
     /* ── BUTTONS ── */
     .btn {
@@ -146,6 +152,10 @@
       box-shadow: 0 4px 24px rgba(108,61,224,0.35);
     }
     .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(108,61,224,0.45); }
+
+    /* ── UTILITIES ── */
+    .content-section { content-visibility: auto; contain-intrinsic-size: 1000px; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
     /* ── HERO ── */
     .hero {
@@ -497,6 +507,22 @@
     .footer-copy a { color: var(--text-muted); text-decoration: none; }
     .footer-copy a:hover { color: var(--white); }
 
+    /* ── FAQ ── */
+    .faq-item {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px; cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(234,0,41,0.25); }
+    .faq-item summary {
+      font-weight: 600; font-size: 1.1rem; list-style: none;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p { margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem; }
+    details[open] p { animation: faqFade 0.3s ease-out; }
+    @keyframes faqFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+
     /* ── SCROLL REVEAL ── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -529,12 +555,34 @@
       .cta-buttons { flex-direction: column; align-items: center; }
       .stat-grid { grid-template-columns: 1fr; }
     }
+
+    /* Accesibilidad general */
+    :focus-visible {
+      outline: 2px solid var(--red-light);
+      outline-offset: 3px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
   </style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://bydstats.com/#website",
+      "url": "https://bydstats.com/",
+      "name": "BYD Stats",
+      "description": "Estadísticas avanzadas para vehículos BYD"
+    },
     {
       "@type": "SoftwareApplication",
       "name": "BYD Stats",
@@ -602,7 +650,7 @@
       <a href="#funciones" class="nav-link">Funciones</a>
       <a href="#planes" class="nav-link">Planes</a>
       <a href="#comunidad" class="nav-link">Comunidad</a>
-      <a href="https://app.bydstats.com" target="_blank" rel="noopener" class="btn-nav">Probar gratis →</a>
+      <a href="https://app.bydstats.com" target="_blank" rel="noopener noreferrer" class="btn-nav">Probar gratis →</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false" style="border:none; background:transparent;">
       <span></span><span></span><span></span>
@@ -617,20 +665,25 @@
     <div class="hero-content">
       <div>
 <h1 class="hero-title reveal reveal-delay-1">
-          <span class="gradient-text">La app para tu BYD</span><br>
-          que BYD<br>no quiso hacer.
+          <span class="gradient-text">BYD Stats: Tu app de estadísticas</span><br>
+          alternativa y 100% local.
         </h1>
-        <p class="hero-subtitle reveal reveal-delay-2">
-          Estadísticas reales, control total. Entiende cómo usas tu coche eléctrico,
-          optimiza tu conducción y convierte cada viaje en datos que trabajan para ti.
+        <p class="hero-subtitle reveal reveal-delay-2" style="font-weight: 500; color: var(--white); font-size: 1.25rem; margin-bottom: 12px;">
+          La app para tu BYD que BYD no quiso hacer.
+        </p>
+        <p class="hero-subtitle reveal reveal-delay-2" style="margin-top: 0;">
+          Entiende cómo usas tu coche eléctrico, analiza el estado de tu batería (SoH) y optimiza tus hábitos de carga. Tus datos, bajo tu control.
         </p>
         <div class="hero-ctas reveal reveal-delay-3">
-          <a href="https://app.bydstats.com" target="_blank" rel="noopener" class="btn btn-primary">
+          <a href="https://app.bydstats.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
             ⚡ Empezar gratis
           </a>
-          <a href="#planes" class="btn btn-outline">
+          <a href="#planes" class="btn btn-outline" style="background: transparent; border-color: transparent;">
             ✦ Ver versión Premium
           </a>
+          <div style="width: 100%; font-size: 0.85rem; color: var(--text-dim); margin-top: 8px;">
+            <span aria-hidden="true">🔒</span> Sin tarjeta de crédito · Funciona 100% local
+          </div>
         </div>
         <div class="hero-stats reveal reveal-delay-4">
           <div>
@@ -668,6 +721,7 @@
 
   <!-- BRAND STRIP -->
   <div class="brand-strip">
+    <h2 class="visually-hidden">Modelos BYD Compatibles</h2>
     <ul class="brand-strip-inner" style="list-style:none;">
       <li><span style="color:var(--text-dim);font-size:.8rem;">Compatible con</span>
       <span style="color:var(--text-dim);font-size:.8rem;margin-left:4px;">(100% eléctricos)</span></li>
@@ -683,7 +737,7 @@
   </div>
 
   <!-- HOW IT WORKS -->
-  <section class="how-section" id="como-funciona">
+  <section class="how-section content-section" id="como-funciona">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Cómo funciona</span>
@@ -692,17 +746,17 @@
       </div>
       <div class="steps">
         <div class="step reveal">
-          <div class="step-num">🔑</div>
+          <div class="step-num" aria-hidden="true">🔑</div>
           <h3>Conecta tu cuenta BYD</h3>
           <p>Accede con tus credenciales de la app oficial de BYD. BYD Stats se conecta de forma segura a la API de BYD para leer tus datos de vehículo.</p>
         </div>
         <div class="step reveal reveal-delay-1">
-          <div class="step-num">📊</div>
+          <div class="step-num" aria-hidden="true">📊</div>
           <h3>Tus datos, al instante</h3>
           <p>Todos tus viajes, cargas y métricas del vehículo se sincronizan automáticamente. Procesado localmente en tu dispositivo — nadie más tiene acceso a tus datos.</p>
         </div>
         <div class="step reveal reveal-delay-2">
-          <div class="step-num">🧠</div>
+          <div class="step-num" aria-hidden="true">🧠</div>
           <h3>Analiza y mejora</h3>
           <p>Descubre patrones de conducción, optimiza tus hábitos de carga, predice la autonomía real y entiende la salud de tu batería con IA embebida.</p>
         </div>
@@ -711,7 +765,7 @@
   </section>
 
   <!-- FEATURES -->
-  <section class="features-section" id="funciones">
+  <section class="features-section content-section" id="funciones">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Funciones</span>
@@ -720,42 +774,42 @@
       </div>
       <div class="features-grid">
         <div class="feature-card highlight reveal">
-          <div class="feature-icon red">📈</div>
+          <div class="feature-icon red" aria-hidden="true">📈</div>
           <div class="feature-body">
             <h3>Estadísticas de conducción reales</h3>
             <p>Eficiencia por viaje, consumo real vs teórico, velocidad media, regeneración, patrones por hora del día, día de la semana y temperatura exterior.</p>
           </div>
         </div>
         <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon purple">🔋</div>
+          <div class="feature-icon purple" aria-hidden="true">🔋</div>
           <div class="feature-body">
             <h3>Salud de batería con IA</h3>
             <p>Predicción del State of Health (SoH) de la batería mediante TensorFlow.js. Detecta degradación temprana y estima la autonomía real a largo plazo.</p>
           </div>
         </div>
         <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-icon blue">⚡</div>
+          <div class="feature-icon blue" aria-hidden="true">⚡</div>
           <div class="feature-body">
             <h3>Historial completo de cargas</h3>
             <p>Registro de cada carga con potencia, duración, coste estimado y curva de carga. Detecta automáticamente carga AC doméstica y carga rápida DC.</p>
           </div>
         </div>
         <div class="feature-card reveal reveal-delay-3">
-          <div class="feature-icon green">🗺️</div>
+          <div class="feature-icon green" aria-hidden="true">🗺️</div>
           <div class="feature-body">
             <h3>Mapa de viajes interactivo</h3>
             <p>Visualiza todos tus recorridos en mapa. Consulta dónde has cargado, las rutas más frecuentes y el consumo por tramo geográfico.</p>
           </div>
         </div>
         <div class="feature-card reveal">
-          <div class="feature-icon red">🚗</div>
+          <div class="feature-icon red" aria-hidden="true">🚗</div>
           <div class="feature-body">
             <h3>Control remoto del vehículo</h3>
             <p>Desde la app: bloquea/desbloquea, activa el clima, gestiona la carga y monitoriza el estado del coche en tiempo real. (Versión Premium)</p>
           </div>
         </div>
         <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon purple">🌱</div>
+          <div class="feature-icon purple" aria-hidden="true">🌱</div>
           <div class="feature-body">
             <h3>Impacto ambiental</h3>
             <p>Calcula el CO₂ evitado respecto a un vehículo de combustión equivalente. Métricas de sostenibilidad reales basadas en tu historial de conducción.</p>
@@ -825,7 +879,7 @@
   </section>
 
   <!-- PRICING -->
-  <section class="pricing-section" id="planes">
+  <section class="pricing-section content-section" id="planes">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Planes</span>
@@ -891,7 +945,7 @@
               <span class="plan-feature-text">Alertas de anomalías en tiempo real</span>
             </div>
           </div>
-          <a href="https://app.bydstats.com" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;justify-content:center;">
+          <a href="https://app.bydstats.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width:100%;justify-content:center;">
             Abrir la app gratuita →
           </a>
         </div>
@@ -954,7 +1008,7 @@
   </section>
 
   <!-- COMMUNITY -->
-  <section class="community-section" id="comunidad">
+  <section class="community-section content-section" id="comunidad">
     <div class="container">
       <div class="community-inner">
         <div class="reveal">
@@ -971,21 +1025,21 @@
         </div>
         <div class="community-cards reveal reveal-delay-1">
           <div class="community-card">
-            <div class="community-card-icon">🛠️</div>
+            <div class="community-card-icon" aria-hidden="true">🛠️</div>
             <div>
               <h4>Desarrollo independiente</h4>
               <p>Un proyecto personal, construido con amor y sin agenda corporativa. Las funciones se diseñan según lo que la comunidad necesita, no lo que vende anuncios.</p>
             </div>
           </div>
           <div class="community-card">
-            <div class="community-card-icon">💬</div>
+            <div class="community-card-icon" aria-hidden="true">💬</div>
             <div>
               <h4>Tu feedback importa</h4>
               <p>Cada sugerencia de usuario se lee y evalúa. Las mejores ideas acaban en la app. Los errores se corrigen rápido porque usamos la app nosotros también.</p>
             </div>
           </div>
           <div class="community-card">
-            <div class="community-card-icon">🔒</div>
+            <div class="community-card-icon" aria-hidden="true">🔒</div>
             <div>
               <h4>Sin suscripciones trampa</h4>
               <p>La versión gratuita es completa y lo seguirá siendo. La versión Premium permite olvidarse de complicaciones al registrar automáticamente viajes y cargas. Puedes cancelar cuando quieras sin perder tus datos.</p>
@@ -997,7 +1051,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section content-section">
     <div class="container">
       <div class="cta-inner reveal">
         <span class="section-label" style="display:block;margin-bottom:16px;">Empieza hoy</span>
@@ -1006,7 +1060,7 @@
           Gratis, sin registro obligatorio, sin publicidad. Solo tus datos y todo el control que siempre quisiste.
         </p>
         <div class="cta-buttons">
-          <a href="https://app.bydstats.com" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:1.05rem;padding:16px 32px;">
+          <a href="https://app.bydstats.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size:1.05rem;padding:16px 32px;">
             ⚡ Probar BYD Stats gratis
           </a>
           <a href="#planes" class="btn btn-premium" style="font-size:1.05rem;padding:16px 32px;">
@@ -1018,46 +1072,46 @@
   </section>
 
   <!-- FAQ -->
-  <section class="faq-section" id="faq" style="padding: 120px 24px; background: var(--bg);">
+  <section class="faq-section content-section" id="faq" style="padding: 120px 24px; background: var(--bg);">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Preguntas Frecuentes</span>
         <h2 class="section-title">Resolvemos tus dudas</h2>
       </div>
       <div class="faq-list reveal" style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
-        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+        <details class="faq-item">
+          <summary>
             ¿BYD Stats anula la garantía de mi coche?
-            <span style="color: var(--red);">+</span>
+            <span style="color: var(--red);" aria-hidden="true">+</span>
           </summary>
-          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+          <p>
             No, en absoluto. BYD Stats funciona consultando la misma API oficial que usa la app de BYD de tu móvil. No enviamos comandos no autorizados ni modificamos el software del vehículo. Es completamente seguro y no afecta a tu garantía.
           </p>
         </details>
-        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+        <details class="faq-item">
+          <summary>
             ¿Qué diferencia hay con la app oficial de BYD?
-            <span style="color: var(--red);">+</span>
+            <span style="color: var(--red);" aria-hidden="true">+</span>
           </summary>
-          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+          <p>
             La app oficial te muestra el estado actual de tu coche, pero no guarda un historial. BYD Stats almacena todos tus viajes, consumos reales, historial de cargas, y utiliza IA para calcular la salud de tu batería (SoH) a lo largo del tiempo.
           </p>
         </details>
-        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+        <details class="faq-item">
+          <summary>
             ¿Dónde se guardan mis datos y contraseñas?
-            <span style="color: var(--red);">+</span>
+            <span style="color: var(--red);" aria-hidden="true">+</span>
           </summary>
-          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+          <p>
             Tus datos de viajes se procesan de forma local en tu dispositivo mediante una base de datos SQLite. Las credenciales de BYD viajan encriptadas directamente a los servidores de BYD. Nosotros no vendemos ni tenemos acceso a tus datos de movilidad.
           </p>
         </details>
-        <details style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; cursor: pointer;">
-          <summary style="font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+        <details class="faq-item">
+          <summary>
             ¿Con qué modelos de BYD es compatible?
-            <span style="color: var(--red);">+</span>
+            <span style="color: var(--red);" aria-hidden="true">+</span>
           </summary>
-          <p style="margin-top: 16px; color: var(--text-muted); line-height: 1.6; font-size: 0.95rem;">
+          <p>
             Actualmente es compatible con todos los modelos 100% eléctricos de BYD vendidos en Europa y otras regiones, incluyendo BYD Seal, Dolphin, Atto 3, Sealion 7, etc. Próximamente añadiremos soporte para la gama de híbridos enchufables (PHEV).
           </p>
         </details>
@@ -1065,6 +1119,13 @@
     </div>
   </section>
 
+    <!-- GEO FACTUAL DATA (For Search Engines & AI) -->
+    <article class="container" style="padding: 40px 24px; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); text-align: center;">
+      <h2 class="visually-hidden">Sobre BYD Stats (Características Técnicas)</h2>
+      <p style="max-width: 800px; margin: 0 auto; line-height: 1.7;">
+        BYD Stats es una aplicación web y móvil de terceros desarrollada de forma independiente para analizar y visualizar los datos de conducción y carga de vehículos eléctricos de la marca BYD. La herramienta procesa localmente la base de datos EC_database.db en el navegador del usuario utilizando SQLite (sql.js), garantizando que la telemetría, el historial de viajes y el cálculo de la salud de la batería (SoH - State of Health) mediante TensorFlow.js se mantengan 100% privados y seguros, sin compartir datos con servidores externos.
+      </p>
+    </article>
   </main>
   <!-- FOOTER -->
   <footer>
@@ -1074,7 +1135,7 @@
         BYD Stats
       </div>
       <div class="footer-links">
-        <a href="https://app.bydstats.com" target="_blank" rel="noopener" class="footer-link">App gratuita</a>
+        <a href="https://app.bydstats.com" target="_blank" rel="noopener noreferrer" class="footer-link">App gratuita</a>
         <a href="#planes" class="footer-link">Premium</a>
         <a href="#como-funciona" class="footer-link">Cómo funciona</a>
         <a href="#planes" class="footer-link">Planes</a>
@@ -1107,9 +1168,18 @@
     // Mobile menu
     function toggleMenu() {
       const links = document.querySelector('.nav-links');
+      const btn = document.querySelector('.hamburger');
       const isOpen = links.style.display === 'flex';
-      links.style.cssText = isOpen ? '' :
-        'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(7,7,15,0.97);backdrop-filter:blur(20px);padding:20px 24px;gap:8px;border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;';
+      
+      if (isOpen) {
+        links.style.cssText = '';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Abrir menú');
+      } else {
+        links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(7,7,15,0.97);backdrop-filter:blur(20px);padding:20px 24px;gap:8px;border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;';
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Cerrar menú');
+      }
     }
 
     // Smooth scrolling for anchor links
