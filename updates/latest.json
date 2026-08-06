@@ -1,8 +1,8 @@
 {
     "changelog":  "Fix: OTA bundle path compatibility (cross-platform zip format)",
-    "version":  "1.3.33",
-    "checksum":  "505d0ad493b7de6abe5b8d20fe47b551978e15c8274f9cc6e90b468d378a2e85",
-    "releasedAt":  "2026-08-06T17:04:37Z",
+    "version":  "1.3.34",
+    "checksum":  "819ae20d253de270f47883364c49ac9897eaf3dc592fe7603b573cc402da38cf",
+    "releasedAt":  "2026-08-06T17:05:24Z",
     "minAppVersion":  "1.6.0",
-    "url":  "https://bydstats.com/updates/byd-stats-v1.3.33.zip"
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.34.zip"
 }
