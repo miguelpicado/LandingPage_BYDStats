@@ -1,8 +1,8 @@
-{
-  "version": "1.3.38",
-  "releasedAt": "2026-08-10T12:37:19Z",
-  "changelog": "Mejorada la notificación de fin de carga: llega mucho más rápido y ahora indica claramente en qué coche ha terminado.",
-  "url": "https://bydstats.com/updates/byd-stats-v1.3.38.zip",
-  "checksum": "ad7310e309a54fd4249354e725c21973008159a75253d005ca353f8d686169f3",
-  "minAppVersion": "1.6.0"
+﻿{
+    "changelog":  "OTA Release v1.3.42",
+    "version":  "1.3.42",
+    "checksum":  "d20cf6ad8b21333c884bc222876b7482b10a71b640fc9d9b3237ee75a3073b29",
+    "releasedAt":  "2026-08-13T18:06:03Z",
+    "minAppVersion":  "1.6.0",
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.42.zip"
 }
