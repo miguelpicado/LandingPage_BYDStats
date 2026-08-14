@@ -1,8 +1,8 @@
-{
-  "changelog": "Corregido: actualizar historial de lugares ahora funciona correctamente. Las cargas en enchufe doméstico (240V) se asignan siempre a 'Casa'.",
-  "releasedAt": "2026-08-13T22:25:11Z",
-  "url": "https://bydstats.com/updates/byd-stats-v1.3.44.zip",
-  "version": "1.3.44",
-  "checksum": "e066503488e1b03a84ddf0d487d17272b9ff5ad8d5bd93a313244facd7a9aa0a",
-  "minAppVersion": "1.6.0"
+﻿{
+    "changelog":  "fix(charges): preserve draft auto-charge on modal dismiss",
+    "version":  "1.3.48",
+    "checksum":  "5f9fdf986569a0213eacb64a98ea0bd5d7ec71503a4d9058797deb34c6447199",
+    "releasedAt":  "2026-08-14T19:49:44Z",
+    "minAppVersion":  "1.6.0",
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.48.zip"
 }
