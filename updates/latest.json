@@ -1,8 +1,8 @@
 ﻿{
-    "changelog":  "fix(charges): preserve draft auto-charge on modal dismiss",
-    "version":  "1.3.48",
-    "checksum":  "5f9fdf986569a0213eacb64a98ea0bd5d7ec71503a4d9058797deb34c6447199",
-    "releasedAt":  "2026-08-14T19:49:44Z",
+    "changelog":  "Granularidad diaria y semanal en gráfico de eficiencia (#112) y corrección de edición de viajes",
+    "version":  "1.3.52",
+    "checksum":  "2881ae3998d54418e086e317b41bfc101cc8a1dbba2532e447113b4892a6bc53",
+    "releasedAt":  "2026-08-16T19:08:02Z",
     "minAppVersion":  "1.6.0",
-    "url":  "https://bydstats.com/updates/byd-stats-v1.3.48.zip"
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.52.zip"
 }
