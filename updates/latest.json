@@ -1,8 +1,8 @@
-{
-  "minAppVersion": "1.6.0",
-  "version": "1.3.59",
-  "checksum": "37560b27e62d48b5f1d0603167bfaff675cbbd1dc1acd5221b5bfd2289a69393",
-  "releasedAt": "2026-10-11T16:15:10Z",
-  "url": "https://bydstats.com/updates/byd-stats-v1.3.59.zip",
-  "changelog": "Mapa de ubicación más claro, con tonos pastel suaves"
+﻿{
+    "changelog":  "Mejoras de seguridad en las actualizaciones y en el control del coche, y mayor estabilidad.",
+    "version":  "1.3.60",
+    "checksum":  "d7f69cfe4675cb4417d84f9fdd75ab9c704d39eb1f7fdfc61b6f9e05039ef1e3",
+    "releasedAt":  "2026-10-11T20:08:00Z",
+    "minAppVersion":  "1.6.0",
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.60.zip"
 }
