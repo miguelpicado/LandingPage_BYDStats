@@ -1,8 +1,8 @@
 {
-  "url": "https://bydstats.com/updates/byd-stats-v1.3.58.zip",
-  "releasedAt": "2026-10-11T15:31:31Z",
-  "changelog": "Mapa de ubicación con aspecto más sobrio (grises)",
-  "checksum": "c9c9703f4efd889d25f9cf6d6c498def4c8b9c079412ecaa875532a5b9e73c93",
-  "version": "1.3.58",
-  "minAppVersion": "1.6.0"
+  "minAppVersion": "1.6.0",
+  "version": "1.3.59",
+  "checksum": "37560b27e62d48b5f1d0603167bfaff675cbbd1dc1acd5221b5bfd2289a69393",
+  "releasedAt": "2026-10-11T16:15:10Z",
+  "url": "https://bydstats.com/updates/byd-stats-v1.3.59.zip",
+  "changelog": "Mapa de ubicación más claro, con tonos pastel suaves"
 }
