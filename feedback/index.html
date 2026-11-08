@@ -119,7 +119,7 @@
           type, title: $('title').value.trim(), description: $('description').value.trim(),
           platform: $('platform').value, appVersion: $('appVersion').value.trim() || undefined,
           contactEmail: $('contactEmail').value.trim() || undefined,
-          attachments: files.map(f => ({ name: f.name, mimeType: f.type, size: f.size })),
+          attachments: files.map(f => ({ name: f.name, mimeType: f.type || 'application/octet-stream', size: f.size })),
         };
         if (type === 'bug') {
           report.stepsToReproduce = $('steps').value.split('\n').map(s=>s.trim()).filter(Boolean);
@@ -138,7 +138,7 @@
         const { shortId, uploadUrls } = await resp.json();
         for (let i = 0; i < files.length; i++) {
           const u = uploadUrls.find(x => x.name === files[i].name);
-          if (u) await fetch(u.url, { method: 'PUT', headers: { 'Content-Type': files[i].type }, body: files[i] });
+          if (u) await fetch(u.url, { method: 'PUT', headers: { 'Content-Type': files[i].type || 'application/octet-stream', 'x-goog-content-length-range': `0,${MAX}` }, body: files[i] });
         }
         show('ok', `¡Gracias! Tu reporte #${shortId} se ha registrado.`);
         $('f').reset();
