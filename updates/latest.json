@@ -1,8 +1,8 @@
 ﻿{
-    "changelog":  "Mejoras de seguridad en las actualizaciones y en el control del coche, y mayor estabilidad.",
-    "version":  "1.3.60",
-    "checksum":  "d7f69cfe4675cb4417d84f9fdd75ab9c704d39eb1f7fdfc61b6f9e05039ef1e3",
-    "releasedAt":  "2026-10-11T20:08:00Z",
+    "changelog":  "Apertura por proximidad marcada como beta y desactivada por defecto. Mejoras de seguridad y estabilidad.",
+    "version":  "1.3.65",
+    "checksum":  "bc216485cc0c167f79ea6aef3780bed67a14dbebb159f551d28a0de13c1e50be",
+    "releasedAt":  "2026-11-09T17:45:16Z",
     "minAppVersion":  "1.6.0",
-    "url":  "https://bydstats.com/updates/byd-stats-v1.3.60.zip"
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.65.zip"
 }
