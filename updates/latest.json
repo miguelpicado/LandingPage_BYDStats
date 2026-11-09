@@ -1,15 +1,16 @@
 {
+  "minAppVersion": "1.6.0",
+  "storeUrl": {
+    "android": "https://play.google.com/store/apps/details?id=com.bydstats.app",
+    "ios": "https://apps.apple.com/app/id6778934996"
+  },
+  "url": "https://bydstats.com/updates/byd-stats-v1.3.72.zip",
+  "checksum": "53e117b09810a88f9977779928ba55ce057617f758b3832a52a765b0c113491a",
   "minNativeBuild": {
-    "android": 0,
+    "android": 254,
     "ios": 0
   },
-  "checksum": "aa4d226330298068e95310a29de2295ecb8705af50e029adca3575dc8d194751",
-  "releasedAt": "2026-11-09T21:16:58Z",
-  "url": "https://bydstats.com/updates/byd-stats-v1.3.71.zip",
-  "changelog": "Nuevo aviso de actualización obligatoria para versiones antiguas. Mejoras de seguridad y estabilidad.",
-  "minAppVersion": "1.6.0",
-  "version": "1.3.71",
-  "storeUrl": {
-    "android": "https://play.google.com/store/apps/details?id=com.bydstats.app"
-  }
+  "version": "1.3.72",
+  "changelog": "Actualización obligatoria para versiones antiguas de Android. Mejoras de seguridad y estabilidad.",
+  "releasedAt": "2026-11-09T21:51:46Z"
 }
