@@ -67,7 +67,7 @@
 
         <div class="prose">
             <h3>Política de Privacidad</h3>
-            <p class="text-sm text-slate-500">Última actualización: 5 de junio de 2026</p>
+            <p class="text-sm text-slate-500">Última actualización: 11 de noviembre de 2026</p>
 
             <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 my-6">
                 <p class="text-sm text-blue-300"><strong>Resumen rápido:</strong> Tus datos son tuyos. En la versión local (PWA) no enviamos nada fuera de tu dispositivo (salvo que uses la sincronización con tu propio Google Drive). En la versión Premium (Android), almacenamos tus datos en servidores de base de datos cifrados exclusivos de la app (Google Cloud Firebase) con el fin de registrar viajes y permitir el control remoto. No vendemos tus datos a anunciantes ni a terceros.</p>
@@ -83,6 +83,7 @@
                 <li><strong>Credenciales BYD (Modo Premium):</strong> El usuario y contraseña de tu cuenta oficial BYD y el PIN de control remoto se solicitan para conectar la app. Estos datos se cifran con tecnología AES-256 en la base de datos Firestore y solo se descifran puntualmente en funciones del servidor para interactuar con la API oficial de BYD. Nunca salen de la infraestructura segura de la app.</li>
                 <li><strong>Telemetría en Tiempo Real (Modo Premium):</strong> Nivel de carga de la batería (SoC %), estado del cargador, kilometraje, temperatura de la batería, presiones de los neumáticos, posición GPS actual y estado físico del vehículo (puertas, ventanas, climatización).</li>
                 <li><strong>Grabación de Viajes (Modo Premium):</strong> Historial detallado de trayectos (coordenadas GPS continuas, velocidades y consumos) registrados en segundo plano mientras realizas un viaje activo.</li>
+                <li><strong>Diagnóstico de fallos (apps de Android e iOS):</strong> Cuando la aplicación se cierra de forma inesperada se genera un informe técnico con la traza del fallo, el modelo de dispositivo, la versión del sistema operativo, la versión de la app y un identificador de instalación aleatorio que no permite identificarte. Más detalles en la sección 4.</li>
             </ul>
 
             <h4>2. Uso de la Información</h4>
@@ -110,6 +111,7 @@
                 <li><strong>Google Play Billing:</strong> Para gestionar y verificar tu suscripción de renovación automática de forma segura.</li>
                 <li><strong>Google Play Integrity:</strong> Para validar la integridad del dispositivo y de la aplicación, evitando fraudes y accesos no autorizados.</li>
                 <li><strong>Firebase Cloud Messaging (FCM):</strong> Para la entrega de notificaciones automáticas.</li>
+                <li><strong>Diagnóstico de fallos (Firebase Crashlytics, Google):</strong> La app usa Firebase Crashlytics para recibir informes cuando la aplicación se cierra de forma inesperada. El informe contiene la traza del fallo, el modelo de dispositivo, la versión del sistema operativo, la versión de la app y un identificador de instalación aleatorio que no permite identificarte. Se usa únicamente para detectar y corregir errores: no se emplea para publicidad, no se comparte con terceros ajenos al proveedor del servicio y no se vincula a tu cuenta. Google actúa como encargado del tratamiento y conserva estos datos durante 90 días.</li>
             </ul>
 
             <h4>5. Retención y Eliminación de Datos</h4>
