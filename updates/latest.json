@@ -1,5 +1,5 @@
 ﻿{
-    "releasedAt":  "2026-11-11T12:49:27Z",
+    "releasedAt":  "2026-11-11T19:20:36Z",
     "storeUrl":  {
                      "android":  "https://play.google.com/store/apps/details?id=com.bydstats.app",
                      "ios":  "https://apps.apple.com/app/id6778934996"
@@ -8,9 +8,9 @@
                            "android":  254,
                            "ios":  32
                        },
-    "changelog":  "OTA Release v1.3.75",
-    "url":  "https://bydstats.com/updates/byd-stats-v1.3.75.zip",
-    "checksum":  "8be431efdf97dce107c4900f1aa08c75bc8b887c827f253c3842adc20f8553bd",
-    "version":  "1.3.75",
+    "changelog":  "OTA Release v1.3.78",
+    "url":  "https://bydstats.com/updates/byd-stats-v1.3.78.zip",
+    "checksum":  "73aadd8637a4f67981edfe068658851a1685cf1a8c977e179fe63ab32fb5a17f",
+    "version":  "1.3.78",
     "minAppVersion":  "1.6.0"
 }
